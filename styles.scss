@@ -17,25 +17,15 @@
     font-weight: 300;
     text-align: right;
     height: 150px;
-    border: 2px solid white;
     padding: 20px;
     color: white;
   }
 
   .calc__buttons-container {
-    border: 2px solid white;
     height: 75%;
     display: grid;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .buttons {
-    border-radius: 50%;
-    height: 90%;
-    width: 70%;
-    color: white;
-    font-size: 25px;
   }
 
   .operators {
@@ -45,4 +35,23 @@
   .functions {
     background-color: #a5a5a5;
   }
+
+  .numbers{
+    background: rgb(117, 117, 117);
+  }
+  .zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 55px;
+    width: 15vw;
+  }
+}
+
+button {
+  border-radius: 50px;
+  height: 95%;
+  width: 75%;
+  color: white;
+  font-size: 25px;
+  margin-left: 15px;
 }
