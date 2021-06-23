@@ -29,6 +29,7 @@
 }
 .calc .operators {
   background: orange;
+  font-size: 40px;
 }
 .calc .functions {
   background-color: #a5a5a5;
