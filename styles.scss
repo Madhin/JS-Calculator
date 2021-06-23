@@ -6,11 +6,12 @@
 
 .calc {
   background-color: black;
-  width: 35vw;
-  height: 90vh;
+  width: 400px;
+  height: 650px;
   margin: 20px 10px;
   border-radius: 20px;
   padding: 20px;
+  margin: 20px;
 
   .calc__output {
     font-size: 120px;
@@ -34,24 +35,39 @@
 
   .functions {
     background-color: #a5a5a5;
+    color: black;
   }
 
-  .numbers{
-    background: rgb(117, 117, 117);
+  .numbers {
+    background: rgb(73, 73, 73);
   }
   .zero {
     grid-column-start: 1;
     grid-column-end: 3;
     border-radius: 55px;
-    width: 15vw;
+    width: 170px;
+    text-align: left;
+    padding-left: 20px;
   }
 }
 
 button {
-  border-radius: 50px;
+  border-radius: 50%;
   height: 95%;
-  width: 75%;
+  width: 90%;
   color: white;
-  font-size: 25px;
-  margin-left: 15px;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  font-family: helvetica;
+}
+
+button:focus {
+  filter: brightness(130%);
+  transition: filter 0.2s;
+}
+
+button:active {
+  filter: brightness(130%);
+  transition: filter 0.2s;
 }

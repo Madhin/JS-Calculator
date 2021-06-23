@@ -6,11 +6,12 @@
 
 .calc {
   background-color: black;
-  width: 35vw;
-  height: 90vh;
+  width: 400px;
+  height: 650px;
   margin: 20px 10px;
   border-radius: 20px;
   padding: 20px;
+  margin: 20px;
 }
 .calc .calc__output {
   font-size: 120px;
@@ -31,22 +32,37 @@
 }
 .calc .functions {
   background-color: #a5a5a5;
+  color: black;
 }
 .calc .numbers {
-  background: #757575;
+  background: #494949;
 }
 .calc .zero {
   grid-column-start: 1;
   grid-column-end: 3;
   border-radius: 55px;
-  width: 15vw;
+  width: 170px;
+  text-align: left;
+  padding-left: 20px;
 }
 
 button {
-  border-radius: 50px;
+  border-radius: 50%;
   height: 95%;
-  width: 75%;
+  width: 90%;
   color: white;
-  font-size: 25px;
-  margin-left: 15px;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  font-family: helvetica;
+}
+
+button:focus {
+  filter: brightness(130%);
+  transition: filter 0.2s;
+}
+
+button:active {
+  filter: brightness(130%);
+  transition: filter 0.2s;
 }
