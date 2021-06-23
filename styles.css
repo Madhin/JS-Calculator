@@ -12,14 +12,15 @@
   border-radius: 20px;
   padding: 20px;
   margin: 20px;
+  position: relative;
 }
 .calc .calc__output {
-  font-size: 120px;
-  font-weight: 300;
+  font-size: 90px;
   text-align: right;
-  height: 150px;
-  padding: 20px;
+  height: 120px;
+  padding: 10px;
   color: white;
+  font-family: helvetica;
 }
 .calc .calc__buttons-container {
   height: 75%;
@@ -66,4 +67,14 @@ button:focus {
 button:active {
   filter: brightness(130%);
   transition: filter 0.2s;
+}
+
+.calc__line {
+  width: 120px;
+  height: 5px;
+  background: white;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 5px;
+  left: 140px;
 }
