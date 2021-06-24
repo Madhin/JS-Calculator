@@ -19,25 +19,27 @@ const zero = document.querySelector(".zero");
 const dot = document.querySelector(".dot");
 const equals = document.querySelector(".equals");
 const numbers = document.querySelectorAll(".numbers");
+const operators = document.querySelectorAll(".operators");
 
-console.log(numbers);
-
-allClear.addEventListener("click", () => {
+const reset = allClear.addEventListener("click", () => {
   output.innerHTML = 0;
 });
 
 numbers.forEach((button) => {
   button.addEventListener("click", (e) => {
-    clickEventListener(e);
+    handleClickEventListener(e);
   });
 });
 
-const clickEventListener = (e) => {
+const handleClickEventListener = (e) => {
   const buttonPressed = e.target.innerHTML;
   const currentOutput = output.innerHTML;
   if (output.innerHTML === "0") {
     output.innerHTML = buttonPressed;
   } else {
     output.innerHTML = currentOutput + buttonPressed;
+  }
+  if ((buttonPressed = operators)) {
+    const convertToNum = parseInt(output.innerHTML);
   }
 };

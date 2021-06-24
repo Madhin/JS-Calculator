@@ -28,7 +28,8 @@
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(4, 1fr);
 }
-.calc .operators {
+.calc .operators,
+.calc .equals {
   background: orange;
   font-size: 40px;
 }

@@ -1,5 +1,7 @@
 "use strict";
 
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
+
 var output = document.querySelector(".calc__output");
 var allClear = document.querySelector(".ac");
 var plusMinus = document.querySelector(".plusminus");
@@ -21,17 +23,17 @@ var zero = document.querySelector(".zero");
 var dot = document.querySelector(".dot");
 var equals = document.querySelector(".equals");
 var numbers = document.querySelectorAll(".numbers");
-console.log(numbers);
-allClear.addEventListener("click", function () {
+var operators = document.querySelectorAll(".operators");
+var reset = allClear.addEventListener("click", function () {
   output.innerHTML = 0;
 });
 numbers.forEach(function (button) {
   button.addEventListener("click", function (e) {
-    clickEventListener(e);
+    handleClickEventListener(e);
   });
 });
 
-var clickEventListener = function clickEventListener(e) {
+var handleClickEventListener = function handleClickEventListener(e) {
   var buttonPressed = e.target.innerHTML;
   var currentOutput = output.innerHTML;
 
@@ -39,5 +41,9 @@ var clickEventListener = function clickEventListener(e) {
     output.innerHTML = buttonPressed;
   } else {
     output.innerHTML = currentOutput + buttonPressed;
+  }
+
+  if (buttonPressed = (_readOnlyError("buttonPressed"), operators)) {
+    var convertToNum = parseInt(output.innerHTML);
   }
 };

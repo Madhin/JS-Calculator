@@ -30,7 +30,8 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .operators {
+  .operators,
+  .equals {
     background: orange;
     font-size: 40px;
   }
