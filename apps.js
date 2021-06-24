@@ -34,5 +34,10 @@ numbers.forEach((button) => {
 
 const clickEventListener = (e) => {
   const buttonPressed = e.target.innerHTML;
-  output.innerHTML = buttonPressed;
+  const currentOutput = output.innerHTML;
+  if (output.innerHTML === "0") {
+    output.innerHTML = buttonPressed;
+  } else {
+    output.innerHTML = currentOutput + buttonPressed;
+  }
 };

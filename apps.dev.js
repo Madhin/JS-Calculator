@@ -33,5 +33,11 @@ numbers.forEach(function (button) {
 
 var clickEventListener = function clickEventListener(e) {
   var buttonPressed = e.target.innerHTML;
-  output.innerHTML = buttonPressed;
+  var currentOutput = output.innerHTML;
+
+  if (output.innerHTML === "0") {
+    output.innerHTML = buttonPressed;
+  } else {
+    output.innerHTML = currentOutput + buttonPressed;
+  }
 };
