@@ -23,9 +23,10 @@ var equals = document.querySelector(".equals");
 var numbers = document.querySelectorAll(".numbers");
 var operators = document.querySelectorAll(".operators");
 var outputString = "";
+var outputArr = [];
 var reset = allClear.addEventListener("click", function () {
   outputString = "";
-  updateOutput();
+  handleUpdateOutput();
 });
 numbers.forEach(function (button) {
   button.addEventListener("click", function (e) {
@@ -34,7 +35,7 @@ numbers.forEach(function (button) {
 });
 operators.forEach(function (button) {
   button.addEventListener("click", function (e) {
-    handleClickEventListener(e);
+    handleOperatorEvent(e);
   });
 });
 dot.addEventListener("click", function () {
@@ -76,10 +77,20 @@ var handleClickEventListener = function handleClickEventListener(e) {
     outputString = outputString + buttonPressed;
   }
 
-  updateOutput();
+  handleUpdateOutput();
 };
 
-var updateOutput = function updateOutput() {
+var handleOperatorEvent = function handleOperatorEvent(e) {
+  var buttonPressed = e.target.innerHTML;
+  output.innerHTML = outputString;
+  outputString = "".concat(outputString, " ").concat(buttonPressed);
+  console.log(outputString);
+  outputArr.push(outputString);
+};
+
+console.log(outputArr);
+
+var handleUpdateOutput = function handleUpdateOutput() {
   if (outputString == "") {
     output.innerHTML = "";
   } else {

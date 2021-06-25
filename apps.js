@@ -22,10 +22,11 @@ const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
 
 let outputString = "";
+let outputArr = [];
 
 const reset = allClear.addEventListener("click", () => {
   outputString = "";
-  updateOutput();
+  handleUpdateOutput();
 });
 
 numbers.forEach((button) => {
@@ -36,7 +37,7 @@ numbers.forEach((button) => {
 
 operators.forEach((button) => {
   button.addEventListener("click", (e) => {
-    handleClickEventListener(e);
+    handleOperatorEvent(e);
   });
 });
 
@@ -80,10 +81,19 @@ const handleClickEventListener = (e) => {
   } else {
     outputString = outputString + buttonPressed;
   }
-  updateOutput();
+  handleUpdateOutput();
 };
 
-const updateOutput = () => {
+const handleOperatorEvent = (e) => {
+  const buttonPressed = e.target.innerHTML;
+  output.innerHTML = outputString;
+  outputString = `${outputString} ${buttonPressed}`;
+  console.log(outputString);
+  outputArr.push(outputString);
+};
+console.log(outputArr);
+
+const handleUpdateOutput = () => {
   if (outputString == "") {
     output.innerHTML = "";
   } else {
