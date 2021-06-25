@@ -20,8 +20,12 @@ const dot = document.querySelector(".dot");
 const equals = document.querySelector(".equals");
 const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
+
+let outputString = "";
+
 const reset = allClear.addEventListener("click", () => {
-  output.innerHTML = 0;
+  outputString = "";
+  updateOutput();
 });
 
 numbers.forEach((button) => {
@@ -31,9 +35,8 @@ numbers.forEach((button) => {
 });
 
 operators.forEach((button) => {
-  button.addEventListener("click", () => {
-    let stringToNum = parseFloat(output.innerHTML);
-    console.log(typeof stringToNum);
+  button.addEventListener("click", (e) => {
+    handleClickEventListener(e);
   });
 });
 
@@ -42,7 +45,7 @@ dot.addEventListener("click", () => {
   if (splitOutput[splitOutput.length - 2] == ".") {
     alert("Invalid Input");
   } else {
-    `output.innerHTML + ${dot}`;
+    `${displayVal} + ${dot}`;
   }
 });
 
@@ -72,10 +75,18 @@ divide.addEventListener("click", () => {
 
 const handleClickEventListener = (e) => {
   const buttonPressed = e.target.innerHTML;
-  const currentOutput = output.innerHTML;
-  if (output.innerHTML === "0") {
-    output.innerHTML = buttonPressed;
+  if (outputString === "0") {
+    outputString = buttonPressed;
   } else {
-    output.innerHTML = currentOutput + buttonPressed;
+    outputString = outputString + buttonPressed;
+  }
+  updateOutput();
+};
+
+const updateOutput = () => {
+  if (outputString == "") {
+    output.innerHTML = "";
+  } else {
+    output.innerHTML = outputString;
   }
 };

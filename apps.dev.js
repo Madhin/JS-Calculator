@@ -1,7 +1,5 @@
 "use strict";
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 var output = document.querySelector(".calc__output");
 var allClear = document.querySelector(".ac");
 var plusMinus = document.querySelector(".plusminus");
@@ -24,8 +22,10 @@ var dot = document.querySelector(".dot");
 var equals = document.querySelector(".equals");
 var numbers = document.querySelectorAll(".numbers");
 var operators = document.querySelectorAll(".operators");
+var outputString = "";
 var reset = allClear.addEventListener("click", function () {
-  output.innerHTML = 0;
+  outputString = "";
+  updateOutput();
 });
 numbers.forEach(function (button) {
   button.addEventListener("click", function (e) {
@@ -33,9 +33,8 @@ numbers.forEach(function (button) {
   });
 });
 operators.forEach(function (button) {
-  button.addEventListener("click", function () {
-    var stringToNum = parseFloat(output.innerHTML);
-    console.log(_typeof(stringToNum));
+  button.addEventListener("click", function (e) {
+    handleClickEventListener(e);
   });
 });
 dot.addEventListener("click", function () {
@@ -44,7 +43,7 @@ dot.addEventListener("click", function () {
   if (splitOutput[splitOutput.length - 2] == ".") {
     alert("Invalid Input");
   } else {
-    "output.innerHTML + ".concat(dot);
+    "".concat(displayVal, " + ").concat(dot);
   }
 });
 plus.addEventListener("click", function () {
@@ -70,11 +69,20 @@ divide.addEventListener("click", function () {
 
 var handleClickEventListener = function handleClickEventListener(e) {
   var buttonPressed = e.target.innerHTML;
-  var currentOutput = output.innerHTML;
 
-  if (output.innerHTML === "0") {
-    output.innerHTML = buttonPressed;
+  if (outputString === "0") {
+    outputString = buttonPressed;
   } else {
-    output.innerHTML = currentOutput + buttonPressed;
+    outputString = outputString + buttonPressed;
+  }
+
+  updateOutput();
+};
+
+var updateOutput = function updateOutput() {
+  if (outputString == "") {
+    output.innerHTML = "";
+  } else {
+    output.innerHTML = outputString;
   }
 };
