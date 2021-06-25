@@ -22,7 +22,6 @@ const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
 
 let outputString = "";
-let outputArr = [];
 
 const reset = allClear.addEventListener("click", () => {
   outputString = "";
@@ -89,9 +88,7 @@ const handleOperatorEvent = (e) => {
   output.innerHTML = outputString;
   outputString = `${outputString} ${buttonPressed}`;
   console.log(outputString);
-  outputArr.push(outputString);
 };
-console.log(outputArr);
 
 const handleUpdateOutput = () => {
   if (outputString == "") {

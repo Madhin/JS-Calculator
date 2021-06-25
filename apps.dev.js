@@ -23,7 +23,6 @@ var equals = document.querySelector(".equals");
 var numbers = document.querySelectorAll(".numbers");
 var operators = document.querySelectorAll(".operators");
 var outputString = "";
-var outputArr = [];
 var reset = allClear.addEventListener("click", function () {
   outputString = "";
   handleUpdateOutput();
@@ -85,10 +84,7 @@ var handleOperatorEvent = function handleOperatorEvent(e) {
   output.innerHTML = outputString;
   outputString = "".concat(outputString, " ").concat(buttonPressed);
   console.log(outputString);
-  outputArr.push(outputString);
 };
-
-console.log(outputArr);
 
 var handleUpdateOutput = function handleUpdateOutput() {
   if (outputString == "") {
