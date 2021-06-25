@@ -20,7 +20,6 @@ const dot = document.querySelector(".dot");
 const equals = document.querySelector(".equals");
 const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
-
 const reset = allClear.addEventListener("click", () => {
   output.innerHTML = 0;
 });
@@ -31,6 +30,46 @@ numbers.forEach((button) => {
   });
 });
 
+operators.forEach((button) => {
+  button.addEventListener("click", () => {
+    let stringToNum = parseFloat(output.innerHTML);
+    console.log(typeof stringToNum);
+  });
+});
+
+dot.addEventListener("click", () => {
+  const splitOutput = output.innerHTML.split("");
+  if (splitOutput[splitOutput.length - 2] == ".") {
+    alert("Invalid Input");
+  } else {
+    `output.innerHTML + ${dot}`;
+  }
+});
+
+plus.addEventListener("click", () => {
+  if (!output.innerHTML.includes(plus)) {
+    `output.innerHTML + ${plus}`;
+  }
+});
+
+minus.addEventListener("click", () => {
+  if (!output.innerHTML.includes(minus)) {
+    `output.innerHTML + ${minus}`;
+  }
+});
+
+multiply.addEventListener("click", () => {
+  if (!output.innerHTML.includes(multiply)) {
+    `output.innerHTML + ${multiply}`;
+  }
+});
+
+divide.addEventListener("click", () => {
+  if (!output.innerHTML.includes(divide)) {
+    `output.innerHTML + ${divide}`;
+  }
+});
+
 const handleClickEventListener = (e) => {
   const buttonPressed = e.target.innerHTML;
   const currentOutput = output.innerHTML;
@@ -38,8 +77,5 @@ const handleClickEventListener = (e) => {
     output.innerHTML = buttonPressed;
   } else {
     output.innerHTML = currentOutput + buttonPressed;
-  }
-  if ((buttonPressed = operators)) {
-    const convertToNum = parseInt(output.innerHTML);
   }
 };
