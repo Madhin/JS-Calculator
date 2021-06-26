@@ -20,6 +20,7 @@ const dot = document.querySelector(".dot");
 const equals = document.querySelector(".equals");
 const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
+const operatorsDm = document.querySelectorAll(".operatorsDm");
 
 let outputString = "";
 
@@ -44,12 +45,18 @@ operators.forEach((button) => {
   });
 });
 
+operatorsDm.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    handleOperatorsDmEvent(e);
+  });
+});
+
 dot.addEventListener("click", () => {
   const splitOutput = output.innerHTML.split("");
   if (splitOutput[splitOutput.length - 2] == ".") {
     alert("Invalid Input");
   } else {
-    `${displayVal} + ${dot}`;
+    `${outputString} + ${dot}`;
   }
 });
 
@@ -65,6 +72,7 @@ const handleClickEventListener = (e) => {
 
 const handleOperatorEvent = (e) => {
   const buttonPressed = e.target.innerHTML;
+  console.log(buttonPressed);
   output.innerHTML = outputString;
   outputString = `${outputString} ${buttonPressed} `;
   console.log(outputString);
@@ -81,4 +89,17 @@ const handleUpdateOutput = () => {
 const handleEqualsEvent = (e) => {
   output.innerHTML = eval(outputString);
   console.log(outputString);
+};
+
+const handleOperatorsDmEvent = (e) => {
+  const buttonPressed = e.target.innerHTML;
+  const newMultiply = "*";
+  const newDivide = "/";
+  console.log(buttonPressed);
+
+  if (buttonPressed === "x") {
+    outputString = `${outputString} ${newMultiply}`;
+  } else if (buttonPressed === "÷") {
+    outputString = `${outputString} ${newDivide} `;
+  }
 };

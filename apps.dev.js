@@ -22,6 +22,7 @@ var dot = document.querySelector(".dot");
 var equals = document.querySelector(".equals");
 var numbers = document.querySelectorAll(".numbers");
 var operators = document.querySelectorAll(".operators");
+var operatorsDm = document.querySelectorAll(".operatorsDm");
 var outputString = "";
 var reset = allClear.addEventListener("click", function () {
   outputString = "";
@@ -40,13 +41,18 @@ operators.forEach(function (button) {
     handleOperatorEvent(e);
   });
 });
+operatorsDm.forEach(function (button) {
+  button.addEventListener("click", function (e) {
+    handleOperatorsDmEvent(e);
+  });
+});
 dot.addEventListener("click", function () {
   var splitOutput = output.innerHTML.split("");
 
   if (splitOutput[splitOutput.length - 2] == ".") {
     alert("Invalid Input");
   } else {
-    "".concat(displayVal, " + ").concat(dot);
+    "".concat(outputString, " + ").concat(dot);
   }
 });
 
@@ -64,6 +70,7 @@ var handleClickEventListener = function handleClickEventListener(e) {
 
 var handleOperatorEvent = function handleOperatorEvent(e) {
   var buttonPressed = e.target.innerHTML;
+  console.log(buttonPressed);
   output.innerHTML = outputString;
   outputString = "".concat(outputString, " ").concat(buttonPressed, " ");
   console.log(outputString);
@@ -80,4 +87,17 @@ var handleUpdateOutput = function handleUpdateOutput() {
 var handleEqualsEvent = function handleEqualsEvent(e) {
   output.innerHTML = eval(outputString);
   console.log(outputString);
+};
+
+var handleOperatorsDmEvent = function handleOperatorsDmEvent(e) {
+  var buttonPressed = e.target.innerHTML;
+  var newMultiply = "*";
+  var newDivide = "/";
+  console.log(buttonPressed);
+
+  if (buttonPressed === "x") {
+    outputString = "".concat(outputString, " ").concat(newMultiply);
+  } else if (buttonPressed === "÷") {
+    outputString = "".concat(outputString, " ").concat(newDivide, " ");
+  }
 };

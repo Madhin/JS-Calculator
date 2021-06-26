@@ -29,6 +29,7 @@
   grid-template-columns: repeat(4, 1fr);
 }
 .calc .operators,
+.calc .operatorsDm,
 .calc .equals {
   background: orange;
   font-size: 40px;
