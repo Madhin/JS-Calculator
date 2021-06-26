@@ -27,6 +27,9 @@ var reset = allClear.addEventListener("click", function () {
   outputString = "";
   handleUpdateOutput();
 });
+var equalsClick = equals.addEventListener("click", function () {
+  handleEqualsEvent();
+});
 numbers.forEach(function (button) {
   button.addEventListener("click", function (e) {
     handleClickEventListener(e);
@@ -46,26 +49,6 @@ dot.addEventListener("click", function () {
     "".concat(displayVal, " + ").concat(dot);
   }
 });
-plus.addEventListener("click", function () {
-  if (!output.innerHTML.includes(plus)) {
-    "output.innerHTML + ".concat(plus);
-  }
-});
-minus.addEventListener("click", function () {
-  if (!output.innerHTML.includes(minus)) {
-    "output.innerHTML + ".concat(minus);
-  }
-});
-multiply.addEventListener("click", function () {
-  if (!output.innerHTML.includes(multiply)) {
-    "output.innerHTML + ".concat(multiply);
-  }
-});
-divide.addEventListener("click", function () {
-  if (!output.innerHTML.includes(divide)) {
-    "output.innerHTML + ".concat(divide);
-  }
-});
 
 var handleClickEventListener = function handleClickEventListener(e) {
   var buttonPressed = e.target.innerHTML;
@@ -73,7 +56,7 @@ var handleClickEventListener = function handleClickEventListener(e) {
   if (outputString === "0") {
     outputString = buttonPressed;
   } else {
-    outputString = outputString + buttonPressed;
+    outputString = "".concat(outputString).concat(buttonPressed);
   }
 
   handleUpdateOutput();
@@ -82,7 +65,7 @@ var handleClickEventListener = function handleClickEventListener(e) {
 var handleOperatorEvent = function handleOperatorEvent(e) {
   var buttonPressed = e.target.innerHTML;
   output.innerHTML = outputString;
-  outputString = "".concat(outputString, " ").concat(buttonPressed);
+  outputString = "".concat(outputString, " ").concat(buttonPressed, " ");
   console.log(outputString);
 };
 
@@ -92,4 +75,12 @@ var handleUpdateOutput = function handleUpdateOutput() {
   } else {
     output.innerHTML = outputString;
   }
+};
+
+var handleEqualsEvent = function handleEqualsEvent(e) {
+  var currentOutput = output.innerHTML;
+  console.log(outputString);
+  var calculate = eval(outputString);
+  output.innerHTML = outputString;
+  console.log(outputString);
 };

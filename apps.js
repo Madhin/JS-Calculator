@@ -28,6 +28,10 @@ const reset = allClear.addEventListener("click", () => {
   handleUpdateOutput();
 });
 
+const equalsClick = equals.addEventListener("click", () => {
+  handleEqualsEvent();
+});
+
 numbers.forEach((button) => {
   button.addEventListener("click", (e) => {
     handleClickEventListener(e);
@@ -49,36 +53,12 @@ dot.addEventListener("click", () => {
   }
 });
 
-plus.addEventListener("click", () => {
-  if (!output.innerHTML.includes(plus)) {
-    `output.innerHTML + ${plus}`;
-  }
-});
-
-minus.addEventListener("click", () => {
-  if (!output.innerHTML.includes(minus)) {
-    `output.innerHTML + ${minus}`;
-  }
-});
-
-multiply.addEventListener("click", () => {
-  if (!output.innerHTML.includes(multiply)) {
-    `output.innerHTML + ${multiply}`;
-  }
-});
-
-divide.addEventListener("click", () => {
-  if (!output.innerHTML.includes(divide)) {
-    `output.innerHTML + ${divide}`;
-  }
-});
-
 const handleClickEventListener = (e) => {
   const buttonPressed = e.target.innerHTML;
   if (outputString === "0") {
     outputString = buttonPressed;
   } else {
-    outputString = outputString + buttonPressed;
+    outputString = `${outputString}${buttonPressed}`;
   }
   handleUpdateOutput();
 };
@@ -86,7 +66,7 @@ const handleClickEventListener = (e) => {
 const handleOperatorEvent = (e) => {
   const buttonPressed = e.target.innerHTML;
   output.innerHTML = outputString;
-  outputString = `${outputString} ${buttonPressed}`;
+  outputString = `${outputString} ${buttonPressed} `;
   console.log(outputString);
 };
 
@@ -96,4 +76,12 @@ const handleUpdateOutput = () => {
   } else {
     output.innerHTML = outputString;
   }
+};
+
+const handleEqualsEvent = (e) => {
+  const currentOutput = output.innerHTML;
+  console.log(outputString);
+  const calculate = eval(outputString);
+  output.innerHTML = outputString;
+  console.log(outputString);
 };
