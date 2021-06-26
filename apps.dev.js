@@ -27,8 +27,8 @@ var reset = allClear.addEventListener("click", function () {
   outputString = "";
   handleUpdateOutput();
 });
-var equalsClick = equals.addEventListener("click", function () {
-  handleEqualsEvent();
+var equalsClick = equals.addEventListener("click", function (e) {
+  handleEqualsEvent(e);
 });
 numbers.forEach(function (button) {
   button.addEventListener("click", function (e) {
@@ -78,9 +78,6 @@ var handleUpdateOutput = function handleUpdateOutput() {
 };
 
 var handleEqualsEvent = function handleEqualsEvent(e) {
-  var currentOutput = output.innerHTML;
-  console.log(outputString);
-  var calculate = eval(outputString);
-  output.innerHTML = outputString;
+  output.innerHTML = eval(outputString);
   console.log(outputString);
 };

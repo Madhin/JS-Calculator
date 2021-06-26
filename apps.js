@@ -28,8 +28,8 @@ const reset = allClear.addEventListener("click", () => {
   handleUpdateOutput();
 });
 
-const equalsClick = equals.addEventListener("click", () => {
-  handleEqualsEvent();
+const equalsClick = equals.addEventListener("click", (e) => {
+  handleEqualsEvent(e);
 });
 
 numbers.forEach((button) => {
@@ -79,9 +79,6 @@ const handleUpdateOutput = () => {
 };
 
 const handleEqualsEvent = (e) => {
-  const currentOutput = output.innerHTML;
-  console.log(outputString);
-  const calculate = eval(outputString);
-  output.innerHTML = outputString;
+  output.innerHTML = eval(outputString);
   console.log(outputString);
 };
