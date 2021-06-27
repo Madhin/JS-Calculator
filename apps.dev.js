@@ -25,7 +25,8 @@ var operators = document.querySelectorAll(".operators");
 var operatorsDm = document.querySelectorAll(".operatorsDm");
 var outputString = "";
 var reset = allClear.addEventListener("click", function () {
-  outputString = "";
+  outputString = "0";
+  console.clear();
   handleUpdateOutput();
 });
 var equalsClick = equals.addEventListener("click", function (e) {

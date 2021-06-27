@@ -25,7 +25,8 @@ const operatorsDm = document.querySelectorAll(".operatorsDm");
 let outputString = "";
 
 const reset = allClear.addEventListener("click", () => {
-  outputString = "";
+  outputString = "0";
+  console.clear();
   handleUpdateOutput();
 });
 
