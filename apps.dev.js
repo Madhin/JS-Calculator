@@ -66,13 +66,12 @@ var handleClickEventListener = function handleClickEventListener(e) {
     outputString = "".concat(outputString).concat(buttonPressed);
   }
 
+  console.log(outputString);
   handleUpdateOutput();
 };
 
 var handleOperatorEvent = function handleOperatorEvent(e) {
   var buttonPressed = e.target.innerHTML;
-  console.log(buttonPressed);
-  output.innerHTML = outputString;
   outputString = "".concat(outputString, " ").concat(buttonPressed, " ");
   console.log(outputString);
 };
@@ -94,11 +93,12 @@ var handleOperatorsDmEvent = function handleOperatorsDmEvent(e) {
   var buttonPressed = e.target.innerHTML;
   var newMultiply = "*";
   var newDivide = "/";
-  console.log(buttonPressed);
 
   if (buttonPressed === "x") {
-    outputString = "".concat(outputString, " ").concat(newMultiply);
+    outputString = "".concat(outputString, " ").concat(newMultiply, " ");
   } else if (buttonPressed === "÷") {
     outputString = "".concat(outputString, " ").concat(newDivide, " ");
   }
-};
+}; //if (outputString.includes(`${operators}` || `${operatorsDm}`)) {
+//output.innerHTML = ;
+//}

@@ -68,13 +68,12 @@ const handleClickEventListener = (e) => {
   } else {
     outputString = `${outputString}${buttonPressed}`;
   }
+  console.log(outputString);
   handleUpdateOutput();
 };
 
 const handleOperatorEvent = (e) => {
   const buttonPressed = e.target.innerHTML;
-  console.log(buttonPressed);
-  output.innerHTML = outputString;
   outputString = `${outputString} ${buttonPressed} `;
   console.log(outputString);
 };
@@ -96,11 +95,14 @@ const handleOperatorsDmEvent = (e) => {
   const buttonPressed = e.target.innerHTML;
   const newMultiply = "*";
   const newDivide = "/";
-  console.log(buttonPressed);
 
   if (buttonPressed === "x") {
-    outputString = `${outputString} ${newMultiply}`;
+    outputString = `${outputString} ${newMultiply} `;
   } else if (buttonPressed === "÷") {
     outputString = `${outputString} ${newDivide} `;
   }
 };
+
+//if (outputString.includes(`${operators}` || `${operatorsDm}`)) {
+//output.innerHTML = ;
+//}
