@@ -56,7 +56,7 @@ operatorsDm.forEach((button) => {
 dot.addEventListener("click", () => {
   const splitOutput = output.innerHTML.split("");
   if (splitOutput[splitOutput.length - 2] == ".") {
-    alert("Invalid Input");
+    output.innerHTML = `NaN`;
   } else {
     `${outputString} + ${dot}`;
   }
@@ -89,7 +89,7 @@ const handleUpdateOutput = () => {
 const handleEqualsEvent = (e) => {
   let result = new Function("return " + outputString)();
   output.innerHTML = result;
-  console.log(result);
+  outputString = result;
 };
 
 const handleOperatorsDmEvent = (e) => {

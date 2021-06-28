@@ -52,7 +52,7 @@ dot.addEventListener("click", function () {
   var splitOutput = output.innerHTML.split("");
 
   if (splitOutput[splitOutput.length - 2] == ".") {
-    alert("Invalid Input");
+    output.innerHTML = "NaN";
   } else {
     "".concat(outputString, " + ").concat(dot);
   }
@@ -88,7 +88,7 @@ var handleUpdateOutput = function handleUpdateOutput() {
 var handleEqualsEvent = function handleEqualsEvent(e) {
   var result = new Function("return " + outputString)();
   output.innerHTML = result;
-  console.log(result);
+  outputString = result;
 };
 
 var handleOperatorsDmEvent = function handleOperatorsDmEvent(e) {
