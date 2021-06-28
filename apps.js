@@ -26,6 +26,7 @@ let outputString = "";
 
 const reset = allClear.addEventListener("click", () => {
   outputString = "0";
+  output.style.fontSize = "68pt";
   console.clear();
   handleUpdateOutput();
 });
@@ -79,6 +80,9 @@ const handleOperatorEvent = (e) => {
 };
 
 const handleUpdateOutput = () => {
+  if (outputString.length > 7) {
+    output.style.fontSize = "40pt";
+  }
   output.innerHTML = outputString;
 };
 

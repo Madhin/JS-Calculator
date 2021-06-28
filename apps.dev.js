@@ -26,6 +26,7 @@ var operatorsDm = document.querySelectorAll(".operatorsDm");
 var outputString = "";
 var reset = allClear.addEventListener("click", function () {
   outputString = "0";
+  output.style.fontSize = "68pt";
   console.clear();
   handleUpdateOutput();
 });
@@ -77,6 +78,10 @@ var handleOperatorEvent = function handleOperatorEvent(e) {
 };
 
 var handleUpdateOutput = function handleUpdateOutput() {
+  if (outputString.length > 7) {
+    output.style.fontSize = "40pt";
+  }
+
   output.innerHTML = outputString;
 };
 
