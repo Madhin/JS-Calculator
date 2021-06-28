@@ -77,16 +77,13 @@ var handleOperatorEvent = function handleOperatorEvent(e) {
 };
 
 var handleUpdateOutput = function handleUpdateOutput() {
-  if (outputString == "") {
-    output.innerHTML = "";
-  } else {
-    output.innerHTML = outputString;
-  }
+  output.innerHTML = outputString;
 };
 
 var handleEqualsEvent = function handleEqualsEvent(e) {
-  output.innerHTML = eval(outputString);
-  console.log(outputString);
+  var result = new Function("return " + outputString)();
+  output.innerHTML = result;
+  console.log(result);
 };
 
 var handleOperatorsDmEvent = function handleOperatorsDmEvent(e) {

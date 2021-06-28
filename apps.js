@@ -79,16 +79,13 @@ const handleOperatorEvent = (e) => {
 };
 
 const handleUpdateOutput = () => {
-  if (outputString == "") {
-    output.innerHTML = "";
-  } else {
-    output.innerHTML = outputString;
-  }
+  output.innerHTML = outputString;
 };
 
 const handleEqualsEvent = (e) => {
-  output.innerHTML = eval(outputString);
-  console.log(outputString);
+  let result = new Function("return " + outputString)();
+  output.innerHTML = result;
+  console.log(result);
 };
 
 const handleOperatorsDmEvent = (e) => {
