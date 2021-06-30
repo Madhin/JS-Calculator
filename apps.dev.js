@@ -70,6 +70,16 @@ percent.addEventListener("click", function (e) {
     output.innerHTML = result;
   }
 });
+plusminus.addEventListener("click", function (e) {
+  var buttonPressed = e.target.innerHTML;
+  outputString = "".concat(outputString);
+
+  if (buttonPressed === "+/-") {
+    outputString = "-".concat(outputString);
+    output.innerHTML = outputString;
+    console.log(outputString);
+  }
+});
 
 var handleClickEventListener = function handleClickEventListener(e) {
   var buttonPressed = e.target.innerHTML;
