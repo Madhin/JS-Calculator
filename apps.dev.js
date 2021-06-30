@@ -23,7 +23,10 @@ var equals = document.querySelector(".equals");
 var numbers = document.querySelectorAll(".numbers");
 var operators = document.querySelectorAll(".operators");
 var operatorsDm = document.querySelectorAll(".operatorsDm");
+var plusminus = document.querySelector(".plusminus");
+var percent = document.querySelector(".percentage");
 var outputString = "";
+var totalFormula = "";
 var reset = allClear.addEventListener("click", function () {
   outputString = "0";
   output.style.fontSize = "68pt";
@@ -57,6 +60,16 @@ dot.addEventListener("click", function () {
     "".concat(outputString, " + ").concat(dot);
   }
 });
+percent.addEventListener("click", function (e) {
+  var buttonPressed = e.target.innerHTML;
+  outputString = "".concat(outputString);
+
+  if (buttonPressed === "%") {
+    outputString = "".concat(outputString, " / 100");
+    var result = new Function("return " + outputString)();
+    console.log(outputString);
+  }
+});
 
 var handleClickEventListener = function handleClickEventListener(e) {
   var buttonPressed = e.target.innerHTML;
@@ -79,7 +92,7 @@ var handleOperatorEvent = function handleOperatorEvent(e) {
 
 var handleUpdateOutput = function handleUpdateOutput() {
   if (outputString.length > 7) {
-    output.style.fontSize = "40pt";
+    output.style.fontSize = "30pt";
   }
 
   output.innerHTML = outputString;
@@ -89,6 +102,12 @@ var handleEqualsEvent = function handleEqualsEvent(e) {
   var result = new Function("return " + outputString)();
   output.innerHTML = result;
   outputString = result;
+
+  if (result.length > 7) {
+    output.style.fontSize = "30pt";
+  } else {
+    output.style.fontSize = "68pt";
+  }
 };
 
 var handleOperatorsDmEvent = function handleOperatorsDmEvent(e) {
@@ -101,6 +120,11 @@ var handleOperatorsDmEvent = function handleOperatorsDmEvent(e) {
   } else if (buttonPressed === "÷") {
     outputString = "".concat(outputString, " ").concat(newDivide, " ");
   }
-}; //if (outputString.includes(`${operators}` || `${operatorsDm}`)) {
+}; //const handlePercentEvent = (e) => {
+//const buttonPressed = e.target.innerHTML;
+//outputString = `${outputString} ${buttonPressed} `;
+//console.log(outputString);
+//};
+//if (outputString.includes(`${operators}` || `${operatorsDm}`)) {
 //output.innerHTML = ;
 //}

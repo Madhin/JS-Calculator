@@ -21,8 +21,11 @@ const equals = document.querySelector(".equals");
 const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
 const operatorsDm = document.querySelectorAll(".operatorsDm");
+const plusminus = document.querySelector(".plusminus");
+const percent = document.querySelector(".percentage");
 
 let outputString = "";
+let totalFormula = "";
 
 const reset = allClear.addEventListener("click", () => {
   outputString = "0";
@@ -62,6 +65,16 @@ dot.addEventListener("click", () => {
   }
 });
 
+percent.addEventListener("click", (e) => {
+  const buttonPressed = e.target.innerHTML;
+  outputString = `${outputString}`;
+  if (buttonPressed === "%") {
+    outputString = `${outputString} / 100`;
+    let result = new Function("return " + outputString)();
+    console.log(outputString);
+  }
+});
+
 const handleClickEventListener = (e) => {
   const buttonPressed = e.target.innerHTML;
   if (outputString === "0") {
@@ -81,7 +94,7 @@ const handleOperatorEvent = (e) => {
 
 const handleUpdateOutput = () => {
   if (outputString.length > 7) {
-    output.style.fontSize = "40pt";
+    output.style.fontSize = "30pt";
   }
   output.innerHTML = outputString;
 };
@@ -90,6 +103,11 @@ const handleEqualsEvent = (e) => {
   let result = new Function("return " + outputString)();
   output.innerHTML = result;
   outputString = result;
+  if (result.length > 7) {
+    output.style.fontSize = "30pt";
+  } else {
+    output.style.fontSize = "68pt";
+  }
 };
 
 const handleOperatorsDmEvent = (e) => {
@@ -103,6 +121,12 @@ const handleOperatorsDmEvent = (e) => {
     outputString = `${outputString} ${newDivide} `;
   }
 };
+
+//const handlePercentEvent = (e) => {
+//const buttonPressed = e.target.innerHTML;
+//outputString = `${outputString} ${buttonPressed} `;
+//console.log(outputString);
+//};
 
 //if (outputString.includes(`${operators}` || `${operatorsDm}`)) {
 //output.innerHTML = ;
