@@ -67,7 +67,7 @@ percent.addEventListener("click", function (e) {
   if (buttonPressed === "%") {
     outputString = "".concat(outputString, " / 100");
     var result = new Function("return " + outputString)();
-    console.log(outputString);
+    output.innerHTML = result;
   }
 });
 
