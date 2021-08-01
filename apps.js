@@ -78,11 +78,15 @@ percent.addEventListener("click", (e) => {
 plusminus.addEventListener("click", (e) => {
   const buttonPressed = e.target.innerHTML;
   outputString = `${outputString}`;
-  if (buttonPressed === "+/-") {
+  if (buttonPressed === "+/-" && outputString > 0) {
     outputString = `-${outputString}`;
     output.innerHTML = outputString;
     console.log(outputString);
+  } else if (buttonPressed === "+/-" && outputString < 0) {
+    outputString = outputString * -1;
+    output.innerHTML = outputString 
   }
+
 });
 
 const handleClickEventListener = (e) => {

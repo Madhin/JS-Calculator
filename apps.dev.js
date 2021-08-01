@@ -74,10 +74,13 @@ plusminus.addEventListener("click", function (e) {
   var buttonPressed = e.target.innerHTML;
   outputString = "".concat(outputString);
 
-  if (buttonPressed === "+/-") {
+  if (buttonPressed === "+/-" && outputString > 0) {
     outputString = "-".concat(outputString);
     output.innerHTML = outputString;
     console.log(outputString);
+  } else if (buttonPressed === "+/-" && outputString < 0) {
+    outputString = outputString * -1;
+    output.innerHTML = outputString;
   }
 });
 
