@@ -4,50 +4,60 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+}
+
 .calc {
   background-color: black;
-  width: 400px;
-  height: 650px;
-  margin: 20px 10px;
+  min-width: 33vw;
+  height: 95vh;
   border-radius: 20px;
-  padding: 20px;
-  margin: 20px;
+  padding: 2%;
+  margin: 2%;
   position: relative;
 }
-.calc .calc__output {
-  font-size: 90px;
+
+.calc__output {
+  font-size: 9vw;
   text-align: right;
-  height: 120px;
-  padding: 10px;
+  height: 10vw;
+  padding: 2%;
   color: white;
   font-family: helvetica;
 }
-.calc .calc__buttons-container {
+
+.calc__buttons-container {
   height: 75%;
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(4, 1fr);
 }
-.calc .operators,
-.calc .operatorsDm,
-.calc .equals {
+
+.operators,
+.operatorsDm,
+.equals {
   background: orange;
-  font-size: 40px;
+  font-size: 190%;
 }
-.calc .functions {
+
+.functions {
   background-color: #a5a5a5;
   color: black;
 }
-.calc .numbers {
+
+.numbers {
   background: #494949;
 }
-.calc .zero {
+
+.zero {
   grid-column-start: 1;
   grid-column-end: 3;
   border-radius: 55px;
-  width: 170px;
+  width: 90%;
   text-align: left;
-  padding-left: 20px;
+  padding-left: 10%;
 }
 
 button {
@@ -55,7 +65,7 @@ button {
   height: 95%;
   width: 90%;
   color: white;
-  font-size: 30px;
+  font-size: 150%;
   border: none;
   cursor: pointer;
   font-family: helvetica;
@@ -79,4 +89,61 @@ button:active {
   position: absolute;
   bottom: 5px;
   left: 140px;
+}
+
+@media screen and (max-width: 420px) {
+  .calc {
+    background-color: black;
+    width: 70vw;
+    height: 95vh;
+  }
+
+  .calc__output {
+    font-size: 25vw;
+    text-align: right;
+    height: 30vw;
+    padding: 2%;
+    color: white;
+    font-family: helvetica;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 421px) {
+  .calc {
+    background-color: black;
+    min-width: 60vw;
+    height: 95vh;
+    border-radius: 20px;
+    padding: 2%;
+    margin: 2%;
+    position: relative;
+  }
+
+  .calc__output {
+    font-size: 20vw;
+    text-align: right;
+    height: 25vw;
+    padding: 2%;
+    color: white;
+    font-family: helvetica;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .calc {
+    background-color: black;
+    min-width: 60vw;
+    height: 95vh;
+    border-radius: 20px;
+    padding: 2%;
+    margin: 2%;
+    position: relative;
+  }
+
+  .calc__output {
+    font-size: 20vw;
+    text-align: right;
+    height: 25vw;
+    padding: 2%;
+    color: white;
+    font-family: helvetica;
+  }
 }
