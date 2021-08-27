@@ -29,7 +29,7 @@ let totalFormula = "";
 
 const reset = allClear.addEventListener("click", () => {
   outputString = "0";
-  output.style.fontSize = "9vw";
+  output.style.fontSize = "6em";
   console.clear();
   handleUpdateOutput();
 });
@@ -107,27 +107,20 @@ const handleOperatorEvent = (e) => {
 };
 
 const handleUpdateOutput = () => {
-  if (outputString.length >= 5) {
-    output.style.fontSize = "4vw";
-  } else if (outputString.length >= 11) {
-    output.style.fontSize = "2vw";
-  }
+  if (outputString.length >= 8) {
+    output.style.fontSize = "3em";
+  } 
   output.innerHTML = outputString;
 };
 
 const handleEqualsEvent = (e) => {
   let result = new Function("return " + outputString)();
+  if (result.length >= 8) {
+    output.style.fontSize = "3em";
+  }
   output.innerHTML = result;
-  outputString = result;
-  if (result.length >= 5) {
-    output.style.fontSize = "4vw";
-  } else if (outputString.length >= 11) {
-    utput.style.fontSize = "2vw";
-  }
-  else {
-    output.style.fontSize = "9vw";
-  }
-};
+}
+;
 
 const handleOperatorsDmEvent = (e) => {
   const buttonPressed = e.target.innerHTML;

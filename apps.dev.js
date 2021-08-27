@@ -29,7 +29,7 @@ var outputString = "";
 var totalFormula = "";
 var reset = allClear.addEventListener("click", function () {
   outputString = "0";
-  output.style.fontSize = "9vw";
+  output.style.fontSize = "6em";
   console.clear();
   handleUpdateOutput();
 });
@@ -104,10 +104,8 @@ var handleOperatorEvent = function handleOperatorEvent(e) {
 };
 
 var handleUpdateOutput = function handleUpdateOutput() {
-  if (outputString.length >= 5) {
-    output.style.fontSize = "4vw";
-  } else if (outputString.length >= 11) {
-    output.style.fontSize = "2vw";
+  if (outputString.length >= 8) {
+    output.style.fontSize = "3em";
   }
 
   output.innerHTML = outputString;
@@ -115,16 +113,12 @@ var handleUpdateOutput = function handleUpdateOutput() {
 
 var handleEqualsEvent = function handleEqualsEvent(e) {
   var result = new Function("return " + outputString)();
-  output.innerHTML = result;
-  outputString = result;
 
-  if (result.length >= 5) {
-    output.style.fontSize = "4vw";
-  } else if (outputString.length >= 11) {
-    utput.style.fontSize = "2vw";
-  } else {
-    output.style.fontSize = "9vw";
+  if (result.length >= 8) {
+    output.style.fontSize = "3em";
   }
+
+  output.innerHTML = result;
 };
 
 var handleOperatorsDmEvent = function handleOperatorsDmEvent(e) {
