@@ -29,7 +29,6 @@ let totalFormula = "";
 
 const reset = allClear.addEventListener("click", () => {
   outputString = "0";
-  output.style.fontSize = "6em";
   console.clear();
   handleUpdateOutput();
 });

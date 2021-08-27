@@ -19,7 +19,7 @@ body{
   position: relative;
 }
   .calc__output {
-
+    font-size: 6em;
     text-align: right;
     border: 2px solid wheat;
     height: 20vh;
@@ -103,8 +103,11 @@ button:active {
   }
 
   .calc__output {
-    font-size: 25vw;
+    font-size: 4em;
+    max-width: 65vw;
+    width: 65vw;
     text-align: right;
+    overflow: hidden;
     height: 30vw;
     padding: 2%;
     color: white;
@@ -123,9 +126,12 @@ button:active {
   position: relative;
 }
   .calc__output {
-    font-size: 20vw;
+    font-size: 7em;
+    max-width: 65vw;
+    width: 65vw;
     text-align: right;
-    height: 25vw;
+    overflow: hidden;
+    height: 30vw;
     padding: 2%;
     color: white;
     font-family: helvetica; 
@@ -143,11 +149,14 @@ button:active {
    position: relative;
  }
    .calc__output {
-     font-size: 20vw;
-     text-align: right;
-     height: 25vw;
-     padding: 2%;
-     color: white;
-     font-family: helvetica; 
+    font-size: 6em;
+    max-width: 65vw;
+    width: 65vw;
+    text-align: right;
+    overflow: hidden;
+    height: 30vw;
+    padding: 2%;
+    color: white;
+    font-family: helvetica;
    }
   }; 
