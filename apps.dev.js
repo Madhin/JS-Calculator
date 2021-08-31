@@ -103,8 +103,8 @@ var handleOperatorEvent = function handleOperatorEvent(e) {
 };
 
 var handleUpdateOutput = function handleUpdateOutput() {
-  if (outputString.length >= 8) {
-    output.style.fontSize = "3em";
+  if (outputString.length >= 7) {
+    output.style.fontSize = "4em";
   }
 
   output.innerHTML = outputString;
@@ -113,8 +113,8 @@ var handleUpdateOutput = function handleUpdateOutput() {
 var handleEqualsEvent = function handleEqualsEvent(e) {
   var result = new Function("return " + outputString)();
 
-  if (result.length >= 8) {
-    output.style.fontSize = "3em";
+  if (result % 1 !== 0) {
+    result = result.toFixed(5);
   }
 
   output.innerHTML = result;

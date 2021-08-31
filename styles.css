@@ -26,7 +26,7 @@ body {
   max-width: 30vw;
   width: 30vw;
   overflow: hidden;
-  padding: 3%;
+  padding: 3% 6.7%;
   color: white;
   font-family: helvetica;
 }
@@ -104,6 +104,7 @@ button:active {
   .calc__output {
     font-size: 4em;
     max-width: 80vw;
+    padding: 3%;
     width: 80vw;
     text-align: right;
     overflow: hidden;
@@ -125,7 +126,7 @@ button:active {
   }
 
   .calc__output {
-    font-size: 7em;
+    font-size: 6em;
     max-width: 65vw;
     width: 65vw;
     text-align: right;

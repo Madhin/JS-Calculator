@@ -106,16 +106,16 @@ const handleOperatorEvent = (e) => {
 };
 
 const handleUpdateOutput = () => {
-  if (outputString.length >= 8) {
-    output.style.fontSize = "3em";
+  if (outputString.length >= 7) {
+    output.style.fontSize = "4em";
   } 
   output.innerHTML = outputString;
 };
 
 const handleEqualsEvent = (e) => {
   let result = new Function("return " + outputString)();
-  if (result.length >= 8) {
-    output.style.fontSize = "3em";
+  if (result % 1 !== 0 ) {
+    result = result.toFixed(5);
   }
   output.innerHTML = result;
 }
